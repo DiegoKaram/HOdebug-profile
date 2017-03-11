@@ -1,6 +1,6 @@
 .PHONY: default help object executable all clean segfault dynamic static nobugs
-CC = gcc 
-CFLAGS = 
+CC = gcc
+CFLAGS = -O0 -g -Wall
 
 LD = $(CC)
 
@@ -27,13 +27,13 @@ executable: $(EXECUTABLES)
 
 all: objects executable
 
-segfault: add_array_segfault.e 
+segfault: add_array_segfault.e
 
-dynamic: add_array_dynamic.e 
+dynamic: add_array_dynamic.e
 
-static: add_array_static.e 
+static: add_array_static.e
 
-nobugs: add_array_nobugs.e 
+nobugs: add_array_nobugs.e
 
 %_c.o: %.c
 	$(CC) $(CFLAGS) -c $^ -o $@
